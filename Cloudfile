@@ -3,7 +3,7 @@ bible-production:
   environment: production # RAILS_ENV
   monitoring_email: bragi@ragnarson.com
   domains:
-    - bible-production.shellyapp.com
+    - bibliawarszawska.pl
   servers:
     app1:
       size: small
