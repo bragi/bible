@@ -1,0 +1,10 @@
+bible-production:
+  ruby_version: 2.0.0
+  environment: production # RAILS_ENV
+  monitoring_email: bragi@ragnarson.com
+  domains:
+    - bible-production.shellyapp.com
+  servers:
+    app1:
+      size: small
+      thin: 4
