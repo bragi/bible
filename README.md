@@ -1,0 +1,1 @@
+Shows snippets from Biblia Warszawska using http://www.biblia.info.pl as source.
