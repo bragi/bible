@@ -2,6 +2,8 @@
 require 'sinatra'
 require './passage'
 
+set :public_folder, File.dirname(__FILE__) + "/public"
+
 get '/' do
-  Passage.new.content()
+  haml :index, {locals: {passage: Passage.new}, format: :html5}
 end

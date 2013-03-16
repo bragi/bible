@@ -8,3 +8,4 @@ gem 'puma'
 
 gem 'sinatra'
 gem 'nokogiri'
+gem 'haml'
