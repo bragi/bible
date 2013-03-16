@@ -9,3 +9,7 @@ gem 'puma'
 gem 'sinatra'
 gem 'nokogiri'
 gem 'haml'
+
+group :development do
+  gem 'pry'
+end

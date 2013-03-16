@@ -4,4 +4,6 @@
     %title Bible
     %link(rel="stylesheet" type="text/css" href="/css/bootstrap.css")    
   %body
-    = passage.content.read
+    %ol{:start => passage.first}
+      - passage.verses.each do |verse|
+        %li= verse
