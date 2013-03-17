@@ -13,9 +13,12 @@
         %h2= book.passage_name
       .row
         .span8
-          %ol.verses{:start => book.first}
-            - book.passage.verses.each do |verse|
-              %li= verse
+          - if book.passage.has_verses?
+            %ol.verses{:start => book.first}
+              - book.passage.verses.each do |verse|
+                %li= verse
+          - else
+            %p.text-warning Nie ma wersetów w podanym zakresie
         .span4
           %form.form-horizontal(action="/" method="GET")
             %label(for="book")
