@@ -2,23 +2,16 @@ require 'open-uri'
 require 'nokogiri'
 
 class Passage
-  attr_reader :first
+  attr_reader :book
   
-  def initialize(book: "Gen", chapter: 1, first: "1", last: nil)
+  def initialize(book)
     @book = book
-    @chapter = chapter
-    @first = first.to_i
-    @last = last && last.to_i
   end
   
   def url
-    "http://www.biblia.info.pl/cgi-bin/biblia-nawigator.cgi?tlumaczenie=bw&rozdzial=#{@chapter}&st=i&ks=#{@book}&nw=tak"
+    "http://www.biblia.info.pl/cgi-bin/biblia-nawigator.cgi?tlumaczenie=bw&rozdzial=#{@book.chapter}&st=i&ks=#{@book.short_name}&nw=tak"
   end
   
-  def utf_encoded
-    content.force_encoding(Encoding::ISO_8859_2).encode(Encoding::UTF_8)
-  end
-
   def content
     open(url).read
   end
@@ -33,8 +26,8 @@ class Passage
     end.reject do |verse| 
       verse == ""
     end
-    first = @first -1
-    last = @last || v.length
+    first = book.first - 1
+    last = book.last || v.length
     v[first..last]
   end
 end

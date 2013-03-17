@@ -1,10 +1,5 @@
 class Book
-  def initialize(book)
-    @book = book
-  end
-  
-  def books
-    {
+  BOOK_NAMES = {
       "Gen" => "Księga Rodzaju (Gen)",
       "Ex" => "Księga Wyjścia (Ex)",
       "Lev" => "Księga Kapłańska",
@@ -51,7 +46,6 @@ class Book
       "Ag" => "Księga Aggeusza (Ag)",
       "Zach" => "Księga Zachariasza (Zach)",
       "Mal" => "Księga Malachiasza (Mal)",
-      "" => "---",
       "Mt" => "Ewangelia Mateusza (Mt)",
       "Mk" => "Ewangelia Marka (Mk)",
       "Luk" => "Ewangelia Łukasza (Lu)",
@@ -80,10 +74,24 @@ class Book
       "Jud" => "List Judy (Jud)",
       "Ap" => "Apokalipsa Św. Jana (Ap)"
     }
+    
+  def initialize(short_name, chapter, first, last)
+    @short_name = BOOK_NAMES.include?(short_name) ? short_name : "Gen"
+    @long_name = BOOK_NAMES[@short_name]
+    @chapter = chapter.to_i > 0 ? chapter.to_i : 1
+    @first = first.to_i > 0 ? first.to_i : 1
+    @last = last.to_i > 0 ? last.to_i : nil
+    @passage = Passage.new(self)
+  end
+  
+  attr_reader :short_name, :long_name, :chapter, :first, :last, :passage
+  
+  def passage_name
+    "#{long_name}, #{chapter}, #{first}-#{last}"
   end
   
   def options
-    books.map { |value, text| Option.new(value, text, value==@book) }
+    BOOK_NAMES.map { |short_name, long_name| Option.new(short_name, long_name, short_name == @short_name) }
   end
   
   class Option

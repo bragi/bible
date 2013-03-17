@@ -7,11 +7,13 @@ require './book'
 
 set :public_folder, File.dirname(__FILE__) + "/public"
 
+helpers do
+  def title(book)
+    "#{book.passage_name} &raquo; Biblia Warszawska"
+  end
+end
+
 get '/' do
-  passage = Passage.new(book: params[:book] || "Gen", 
-    chapter: params[:chapter] || 1,
-    first: params[:first] || 1,
-    last: params[:last] || nil)
-  book = Book.new(params[:book] || "Gen")
-  haml :index, {locals: {passage: passage, book: book}, format: :html5}
+  book = Book.new(params[:book], params[:chapter], params[:first], params[:last])
+  haml :index, {locals: {book: book}, format: :html5}
 end

@@ -1,35 +1,39 @@
 !!! 5
 %html(lang="pl")
   %head
-    %title Bible
+    %title= title(book)
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %link(rel="stylesheet" type="text/css" href="/css/bootstrap.css")    
     %link(rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css")    
     %link(rel="stylesheet" type="text/css" href="/css/bible.css")    
   %body
     .container
       .row
+        %h1 Biblia Warszawska
+        %h2= book.passage_name
+      .row
         .span8
-          %ol.verses{:start => passage.first}
-            - passage.verses.each do |verse|
+          %ol.verses{:start => book.first}
+            - book.passage.verses.each do |verse|
               %li= verse
         .span4
           %form.form-horizontal(action="/" method="GET")
             %label(for="book")
               Księga
-            %select{:name => "book"}
+            %select{:id => "book", :name => "book"}
               - book.options.each do |option|
                 %option{option.attributes}
                   = option.text
             %label(for="chapter")
               Rozdział
-            %input{:type => "text", :name => "chapter", :value => params[:chapter]}
+            %input{:type => "text", :id => "chapter", :name => "chapter",:value => params[:chapter]}
             
             %label(for="first")
               Pierwszy wiersz
-            %input{:type => "text", :name => "first", :value => params[:first]}
+            %input{:type => "text", :id => "first", :name => "first", :value => params[:first]}
             
             %label(for="last")
               Ostatni wiersz
-            %input{:type => "text", :name => "last", :value => params[:last]}
+            %input{:type => "text", :id => "last", :name => "last", :value => params[:last]}
             
             %input(type="submit" value="Pokaż")
