@@ -1,2 +1,2 @@
-require './bible'
+require './app'
 run Sinatra::Application
