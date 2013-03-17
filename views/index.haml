@@ -7,7 +7,7 @@
     %link(rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css")    
     %link(rel="stylesheet" type="text/css" href="/css/bible.css")    
   %body
-    .container
+    #wrap.container
       .row
         %h1 Biblia Warszawska
         %h2= book.passage_name
@@ -40,3 +40,21 @@
             %input{:type => "text", :id => "last", :name => "last", :value => params[:last]}
             
             %input(type="submit" value="Pokaż")
+      #push  
+    #footer
+      .container
+        %ul.inline
+          %li.muted
+            Cytaty są pobierane ze strony
+            %a(href="http://www.biblia.info.pl") Biblia 2000
+            i dostosowane do warunków XXI wieku.
+          %li.muted
+            Projekt wykonany przez
+            %a(href="mailto:bragi@ragnarson.com") Łukasza Piestrzeniewicza
+          %li.muted
+            Kod dostępny jest na
+            %a(href="http://github.com/bragi/bible") GitHub
+            i dostępny jest na licencji MIT
+          %li.muted
+            Hostowane na
+            %a(href="https://shellycloud.com/") Shelly Cloud
