@@ -30,15 +30,15 @@
                   = option.text
             %label(for="chapter")
               Rozdział
-            %input{:type => "text", :id => "chapter", :name => "chapter",:value => params[:chapter]}
+            %input{:type => "text", :id => "chapter", :name => "chapter", :value => book.chapter}
             
             %label(for="first")
               Pierwszy wiersz
-            %input{:type => "text", :id => "first", :name => "first", :value => params[:first]}
+            %input{:type => "text", :id => "first", :name => "first", :value => book.first}
             
             %label(for="last")
               Ostatni wiersz
-            %input{:type => "text", :id => "last", :name => "last", :value => params[:last]}
+            %input{:type => "text", :id => "last", :name => "last", :value => book.last}
             
             %input(type="submit" value="Pokaż")
       #push  
