@@ -1,0 +1,20 @@
+class Address
+  def initialize(text)
+    @text = text
+  end
+
+
+  def to_params
+  	case @text
+  	when /\A(\w+)\z/
+  		return [$1, "1", "1", nil]
+  	when /\A(\w+)\s+(\d+)\z/
+  		return [$1, $2, "1", nil]
+  	when /\A(\w+)\s+(\d+):(\d+)-?\z/
+  		return [$1, $2, $3, nil]
+  	when /\A(\w+)\s+(\d+):(\d+)-(\d+)\z/
+  		return [$1, $2, $3, $4]
+  	end
+  end
+  
+end
