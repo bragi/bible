@@ -6,13 +6,13 @@ class Address
 
   def to_params
   	case @text
-  	when /\A(\w+)\z/
+  	when /\A(\d*[A-Za-z]+)\z/
   		return [$1, "1", "1", nil]
-  	when /\A(\w+)\s+(\d+)\z/
+  	when /\A(\d*[A-Za-z]+)\s*(\d+)\z/
   		return [$1, $2, "1", nil]
-  	when /\A(\w+)\s+(\d+):(\d+)-?\z/
+  	when /\A(\d*[A-Za-z]+)\s*(\d+):(\d+)-?\z/
   		return [$1, $2, $3, nil]
-  	when /\A(\w+)\s+(\d+):(\d+)-(\d+)\z/
+  	when /\A(\d*[A-Za-z]+)\s*(\d+):(\d+)-(\d+)\z/
   		return [$1, $2, $3, $4]
   	end
   end
