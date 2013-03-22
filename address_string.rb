@@ -1,4 +1,4 @@
-class Address
+class AddressString
   def initialize(text)
     @text = text
   end

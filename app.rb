@@ -4,7 +4,8 @@ require 'haml'
 
 require './passage'
 require './book'
-require './address'
+require './address_string'
+require './address_params'
 
 set :public_folder, File.dirname(__FILE__) + "/public"
 
@@ -14,13 +15,12 @@ helpers do
   end
 end
 
-get '/' do
-  book = Book.new(params[:book], params[:chapter], params[:first], params[:last])
-  haml :index, {locals: {book: book}, format: :html5}
+get "/" do
+  redirect("/#{AddressParams.new(params).to_s}")
 end
 
-get '/s/*' do |query|
-  address = Address.new(query)
+get "/*" do |query|
+  address = AddressString.new(query)
   book = Book.new(*address.to_params)
   haml :index, {locals: {book: book}, format: :html5}
 end
