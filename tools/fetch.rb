@@ -17,6 +17,16 @@ class Fetch
     file
   end
 
+  def books_file
+    File.join(target_dir, "books.txt")
+  end
+
+  def write_book_chapters(book, chapter)
+    File.open(books_file, "a") do |file|
+      file << "#{book}: #{chapter-1}\n"
+    end
+  end
+
   def fetch
     book_names.each do |name|
       chapter = 1
@@ -29,6 +39,7 @@ class Fetch
         chapter += 1
         book = Book.new(name, chapter, 1, nil)
       end
+      write_book_chapters(name, chapter)
     end
   end
 end
