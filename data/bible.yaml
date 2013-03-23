@@ -1,0 +1,201 @@
+---
+:old:
+  Gen:
+    :chapters: 50
+    :full_name: Księga Rodzaju (Gen)
+  Ex:
+    :chapters: 40
+    :full_name: Księga Wyjścia (Ex)
+  Lev:
+    :chapters: 27
+    :full_name: Księga Kapłańska
+  Nu:
+    :chapters: 36
+    :full_name: Księga Liczb (Nu)
+  Deu:
+    :chapters: 34
+    :full_name: Księga Powtórzonego Prawa
+  Joz:
+    :chapters: 24
+    :full_name: Księga Jozuego (Joz)
+  Sdz:
+    :chapters: 21
+    :full_name: Księga Sedziów (Sdz)
+  Rut:
+    :chapters: 4
+    :full_name: Księga Rut (Rut)
+  1Sam:
+    :chapters: 31
+    :full_name: 1 Księga Samuela (1Sam)
+  2Sam:
+    :chapters: 24
+    :full_name: 2 Księga Samuela (2Sam)
+  1Krl:
+    :chapters: 22
+    :full_name: 1 Księga Królewska (1Krl)
+  2Krl:
+    :chapters: 25
+    :full_name: 2 Księga Królewska (2Krl)
+  1Krn:
+    :chapters: 29
+    :full_name: 1 Księga Kronik (1Krn)
+  2Krn:
+    :chapters: 36
+    :full_name: 2 Księga Kronik (2Krn)
+  Ezd:
+    :chapters: 10
+    :full_name: Księga Ezdrasza (Ezd)
+  Neh:
+    :chapters: 13
+    :full_name: Księga Nehemiasza (Neh)
+  Est:
+    :chapters: 10
+    :full_name: Księga Estery (Est)
+  Hi:
+    :chapters: 42
+    :full_name: Księga Hioba (Hi)
+  Ps:
+    :chapters: 150
+    :full_name: Księga Psalmów (Ps)
+  Prz:
+    :chapters: 31
+    :full_name: Księga Przysłów (Prz)
+  Koh:
+    :chapters: 12
+    :full_name: Księga Koheleta (Koh)
+  Pnp:
+    :chapters: 8
+    :full_name: Pieśń nad pieśniami (Pnp)
+  Iz:
+    :chapters: 66
+    :full_name: Księga Izajasza (Iz)
+  Jer:
+    :chapters: 52
+    :full_name: Księga Jeremiasza (Jer)
+  Lam:
+    :chapters: 5
+    :full_name: Lamentacje Jeremiasza (Lam)
+  Ez:
+    :chapters: 48
+    :full_name: Księga Ezechiela (Ez)
+  Dan:
+    :chapters: 12
+    :full_name: Księga Daniela (Dan)
+  Oz:
+    :chapters: 14
+    :full_name: Księga Ozeasza (Oz)
+  Joel:
+    :chapters: 3
+    :full_name: Księga Joela (Joel)
+  Am:
+    :chapters: 9
+    :full_name: Księga Amosa (Am)
+  Ab:
+    :chapters: 1
+    :full_name: Księga Abdiasza (Ab)
+  Jon:
+    :chapters: 4
+    :full_name: Księga Jonasza (Jon)
+  Mi:
+    :chapters: 7
+    :full_name: Księga Micheasza (Mi)
+  Na:
+    :chapters: 3
+    :full_name: Księga Nahuma (Na)
+  Hab:
+    :chapters: 3
+    :full_name: Księga Habakuka (Hab)
+  Sof:
+    :chapters: 3
+    :full_name: Księga Sofoniasza (Sof)
+  Ag:
+    :chapters: 2
+    :full_name: Księga Aggeusza (Ag)
+  Zach:
+    :chapters: 14
+    :full_name: Księga Zachariasza (Zach)
+  Mal:
+    :chapters: 3
+    :full_name: Księga Malachiasza (Mal)
+:new:
+  Mt:
+    :chapters: 28
+    :full_name: Ewangelia Mateusza (Mt)
+  Mk:
+    :chapters: 16
+    :full_name: Ewangelia Marka (Mk)
+  Luk:
+    :chapters: 24
+    :full_name: Ewangelia Łukasza (Lu)
+  J:
+    :chapters: 21
+    :full_name: Ewangelia Jana (J)
+  Dz:
+    :chapters: 28
+    :full_name: Dzieje Apostolskie (Dz)
+  Rz:
+    :chapters: 16
+    :full_name: List do Rzymian (Rz)
+  1Kor:
+    :chapters: 16
+    :full_name: 1 List do Koryntian (1Kor)
+  2Kor:
+    :chapters: 13
+    :full_name: 2 List do Koryntian (2Kor)
+  Ga:
+    :chapters: 6
+    :full_name: List do Galatów (Ga)
+  Ef:
+    :chapters: 6
+    :full_name: List do Efezjan (Ef)
+  Fil:
+    :chapters: 4
+    :full_name: List do Filipian (Fil)
+  Kol:
+    :chapters: 4
+    :full_name: List do Kolosan (Kol)
+  1Tes:
+    :chapters: 5
+    :full_name: 1 List do Tesaloniczan (1Tes)
+  2Tes:
+    :chapters: 3
+    :full_name: 2 List do Tesaloniczan (2Tes)
+  1Tym:
+    :chapters: 6
+    :full_name: 1 List do Tymoteusza (1Tym)
+  2Tym:
+    :chapters: 4
+    :full_name: 2 List do Tymoteusza (2Tym)
+  Tyt:
+    :chapters: 3
+    :full_name: List do Tytusa (Tyt)
+  Flm:
+    :chapters: 1
+    :full_name: List do Filemona (Flm)
+  Heb:
+    :chapters: 13
+    :full_name: List do Hebrajczyków (Heb)
+  Jak:
+    :chapters: 5
+    :full_name: List Jakuba (Jak)
+  1P:
+    :chapters: 5
+    :full_name: 1 List Piotra (1P)
+  2P:
+    :chapters: 3
+    :full_name: 2 List Piotra (2P)
+  1J:
+    :chapters: 5
+    :full_name: 1 List Jana (1J)
+  2J:
+    :chapters: 1
+    :full_name: 2 List Jana (2J)
+  3J:
+    :chapters: 1
+    :full_name: 3 List Jana (3J)
+  Jud:
+    :chapters: 1
+    :full_name: List Judy (Jud)
+  Ap:
+    :chapters: 22
+    :full_name: Apokalipsa Św. Jana (Ap)
