@@ -14,6 +14,8 @@ class AddressString
   		return [$1, $2, $3, nil]
   	when /\A(\d*[A-Za-z]+)\s*(\d+):(\d+)-(\d+)\z/
   		return [$1, $2, $3, $4]
+    else
+      raise "Text doesn't match anything known: '#{@text}'"
   	end
   end
   

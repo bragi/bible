@@ -16,7 +16,7 @@ helpers do
 end
 
 get "/" do
-  redirect("/#{AddressParams.new(params).to_s}")
+  redirect to("/#{AddressParams.new(params).to_s}")
 end
 
 get "/*" do |query|
