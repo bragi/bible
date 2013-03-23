@@ -8,6 +8,17 @@ require './address_string'
 require './address_params'
 
 set :public_folder, File.dirname(__FILE__) + "/public"
+set :raise_errors, true
+
+configure do
+  # logging is enabled by default in classic style applications,
+  # so `enable :logging` is not needed
+  file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+  file.sync = true
+  $stdout.reopen(file)
+  $stderr.reopen(file)
+  use Rack::CommonLogger, file
+end
 
 helpers do
   def title(book)
