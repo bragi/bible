@@ -1,97 +1,38 @@
+require 'yaml'
+
 class Book
-  BOOK_NAMES = {
-      "Gen" => "Księga Rodzaju (Gen)",
-      "Ex" => "Księga Wyjścia (Ex)",
-      "Lev" => "Księga Kapłańska",
-      "Nu" => "Księga Liczb (Nu)",
-      "Deu" => "Księga Powtórzonego Prawa",
-      "Joz" => "Księga Jozuego (Joz)",
-      "Sdz" => "Księga Sedziów (Sdz)",
-      "Rut" => "Księga Rut (Rut)",
-      "1Sam" => "1 Księga Samuela (1Sam)",
-      "2Sam" => "2 Księga Samuela (2Sam)",
-      "1Krl" => "1 Księga Królewska (1Krl)",
-      "2Krl" => "2 Księga Królewska (2Krl)",
-      "1Krn" => "1 Księga Kronik (1Krn)",
-      "2Krn" => "2 Księga Kronik (2Krn)",
-      "Ezd" => "Księga Ezdrasza (Ezd)",
-      "Neh" => "Księga Nehemiasza (Neh)",
-      "Tob" => "Księga Tobiasza (Tob)",
-      "Jdt" => "Księga Judyty (Jdt)",
-      "Est" => "Księga Estery (Est)",
-      "1Mch" => "1 Machabejska (1Mach)",
-      "2Mch" => "2 Machabejska (2Mach)",
-      "Hi" => "Księga Hioba (Hi)",
-      "Ps" => "Księga Psalmów (Ps)",
-      "Prz" => "Księga Przysłów (Prz)",
-      "Koh" => "Księga Koheleta (Koh)",
-      "Pnp" => "Pieśń nad pieśniami (Pnp)",
-      "Mdr" => "Księga Mądrości (Mdr)",
-      "Syr" => "Mądrość Syracha (Syr)",
-      "Iz" => "Księga Izajasza (Iz)",
-      "Jer" => "Księga Jeremiasza (Jer)",
-      "Lam" => "Lamentacje Jeremiasza (Lam)",
-      "Bar" => "Księga Barucha (Bar)",
-      "Ez" => "Księga Ezechiela (Ez)",
-      "Dan" => "Księga Daniela (Dan)",
-      "Oz" => "Księga Ozeasza (Oz)",
-      "Joel" => "Księga Joela (Joel)",
-      "Am" => "Księga Amosa (Am)",
-      "Ab" => "Księga Abdiasza (Ab)",
-      "Jon" => "Księga Jonasza (Jon)",
-      "Mi" => "Księga Micheasza (Mi)",
-      "Na" => "Księga Nahuma (Na)",
-      "Hab" => "Księga Habakuka (Hab)",
-      "Sof" => "Księga Sofoniasza (Sof)",
-      "Ag" => "Księga Aggeusza (Ag)",
-      "Zach" => "Księga Zachariasza (Zach)",
-      "Mal" => "Księga Malachiasza (Mal)",
-      "Mt" => "Ewangelia Mateusza (Mt)",
-      "Mk" => "Ewangelia Marka (Mk)",
-      "Luk" => "Ewangelia Łukasza (Lu)",
-      "J" => "Ewangelia Jana (J)",
-      "Dz" => "Dzieje Apostolskie (Dz)",
-      "Rz" => "List do Rzymian (Rz)",
-      "1Kor" => "1 List do Koryntian (1Kor)",
-      "2Kor" => "2 List do Koryntian (2Kor)",
-      "Ga" => "List do Galatów (Ga)",
-      "Ef" => "List do Efezjan (Ef)",
-      "Fil" => "List do Filipian (Fil)",
-      "Kol" => "List do Kolosan (Kol)",
-      "1Tes" => "1 List do Tesaloniczan (1Tes)",
-      "2Tes" => "2 List do Tesaloniczan (2Tes)",
-      "1Tym" => "1 List do Tymoteusza (1Tym)",
-      "2Tym" => "2 List do Tymoteusza (2Tym)",
-      "Tyt" => "List do Tytusa (Tyt)",
-      "Flm" => "List do Filemona (Flm)",
-      "Heb" => "List do Hebrajczyków (Heb)",
-      "Jak" => "List Jakuba (Jak)",
-      "1P" => "1 List Piotra (1P)",
-      "2P" => "2 List Piotra (2P)",
-      "1J" => "1 List Jana (1J)",
-      "2J" => "2 List Jana (2J)",
-      "3J" => "3 List Jana (3J)",
-      "Jud" => "List Judy (Jud)",
-      "Ap" => "Apokalipsa Św. Jana (Ap)"
-    }
+  
+  def self.book_names
+    return @@book_names if defined?(@@book_names)
+    @@book_names = YAML::load(File.open(File.join(File.dirname(__FILE__), "data", "bible.yaml")))
+  end
+
+  def self.books
+    return @@books if defined?(@@books)
+    @books = book_names[:old].merge(book_names[:new])
+  end
     
   def initialize(short_name, chapter, first, last)
-    @short_name = BOOK_NAMES.include?(short_name) ? short_name : "Gen"
-    @long_name = BOOK_NAMES[@short_name]
+    @short_name = Book.books.include?(short_name) ? short_name : "Gen"
+    @full_name = Book.books[@short_name][:full_name]
     @chapter = chapter.to_i > 0 ? chapter.to_i : 1
     @first = first.to_i > 0 ? first.to_i : 1
     @last = last.to_i > 0 ? last.to_i : nil
     @passage = Passage.new(self)
   end
   
-  attr_reader :short_name, :long_name, :chapter, :first, :last, :passage
+  attr_reader :short_name, :full_name, :chapter, :first, :last, :passage
   
   def passage_name
-    "#{long_name}, #{chapter}, #{first}-#{last}"
+    "#{full_name}, #{chapter}, #{first}-#{last}"
+  end
+
+  def options(group_name)
+    Book.book_names[group_name].map { |short_name, data| Option.new(short_name, data[:full_name], short_name == @short_name) }
   end
   
-  def options
-    BOOK_NAMES.map { |short_name, long_name| Option.new(short_name, long_name, short_name == @short_name) }
+  def group_options
+    { "Stary Testament" => options(:old), "Nowy Testament" => options(:new) }
   end
   
   class Option

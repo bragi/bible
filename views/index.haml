@@ -25,9 +25,11 @@
             %label(for="book")
               Księga
             %select{:id => "book", :name => "book"}
-              - book.options.each do |option|
-                %option{option.attributes}
-                  = option.text
+              - book.group_options.each do |group, options|
+                %optgroup(label=group)
+                  - options.each do |option|
+                    %option{option.attributes}
+                      = option.text
             %label(for="chapter")
               Rozdział
             %input{:type => "text", :id => "chapter", :name => "chapter", :value => book.chapter}
