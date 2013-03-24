@@ -33,5 +33,5 @@ end
 get "/*" do |query|
   address = AddressString.new(query)
   book = Book.new(*address.to_params)
-  haml :index, {locals: {book: book}, format: :html5}
+  haml :index, {locals: {book: book}, format: :html5, encoding: "UTF-8"}
 end
