@@ -1,4 +1,4 @@
-# coding: utf-8
+# encoding: utf-8
 require 'minitest/autorun'
 require 'rack/test'
 require File.expand_path('../app', File.dirname(__FILE__))
