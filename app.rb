@@ -26,6 +26,10 @@ helpers do
   end
 end
 
+before do
+  content_type :html, 'charset' => 'utf-8'
+end
+
 get "/" do
   redirect to("/#{AddressParams.new(params).to_s}")
 end
