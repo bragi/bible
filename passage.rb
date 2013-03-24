@@ -1,3 +1,4 @@
+# coding: utf-8
 class Passage
   attr_reader :book
   

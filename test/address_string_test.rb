@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'minitest/autorun'
 
 require File.expand_path('../address_string', File.dirname(__FILE__))

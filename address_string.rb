@@ -1,3 +1,4 @@
+# coding: utf-8
 class AddressString
   def initialize(text)
     @text = text
