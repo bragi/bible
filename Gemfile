@@ -5,6 +5,7 @@ gem 'rack'
 # running rake tasks
 gem 'rake'
 # web server
+gem 'puma'
 gem 'thin'
 
 gem 'sinatra'
