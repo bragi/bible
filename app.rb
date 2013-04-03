@@ -16,7 +16,7 @@ set :raise_errors, true
 configure do
   # logging is enabled by default in classic style applications,
   # so `enable :logging` is not needed
-  file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+  file = File.new("#{settings.root}/log/#{settings.environment}.log", 'w+')
   file.sync = true
   $stdout.reopen(file)
   $stderr.reopen(file)
