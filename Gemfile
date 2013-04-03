@@ -5,7 +5,7 @@ gem 'rack'
 # running rake tasks
 gem 'rake'
 # web server
-gem 'puma'
+gem 'puma', "~> 2.0.0.b4"
 gem 'thin'
 
 gem 'sinatra'
