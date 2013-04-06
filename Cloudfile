@@ -7,4 +7,4 @@ bible-production:
   servers:
     app1:
       size: small
-      puma: 4
+      puma: 1
