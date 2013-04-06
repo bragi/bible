@@ -8,7 +8,6 @@ gem 'rake'
 gem 'puma', "~> 2.0.0.b4"
 
 gem 'sinatra'
-gem 'nokogiri'
 gem 'haml'
 
 group :development do
