@@ -1,5 +1,5 @@
 bible-production:
-  ruby_version: 2.0.0
+  ruby_version: jruby
   environment: production # RAILS_ENV
   monitoring_email: bragi@ragnarson.com
   domains:

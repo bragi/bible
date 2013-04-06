@@ -6,7 +6,6 @@ gem 'rack'
 gem 'rake'
 # web server
 gem 'puma', "~> 2.0.0.b4"
-gem 'thin'
 
 gem 'sinatra'
 gem 'nokogiri'
@@ -14,6 +13,7 @@ gem 'haml'
 
 group :development do
   gem 'pry'
+  gem 'shelly'
 end
 
 group :test do
