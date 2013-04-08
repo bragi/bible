@@ -18,8 +18,10 @@ configure do
   # so `enable :logging` is not needed
   file = File.new("#{settings.root}/log/#{settings.environment}.log", 'w')
   file.sync = true
-  $stdout.reopen(file)
-  $stderr.reopen(file)
+  if settings.environment == "production"
+    $stdout.reopen(file)
+    $stderr.reopen(file)
+  end
   use Rack::CommonLogger, file
 end
 
