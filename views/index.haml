@@ -14,9 +14,10 @@
   %body
     #wrap.container
       .row
-        %h1 
-          %a(href="/") Biblia Warszawska
-        %h2= book.passage_name
+        .span12
+          %h1
+            %a(href="/") Biblia Warszawska
+          %h2= book.passage_name
       .row
         .span8
           - if book.passage.has_verses?
