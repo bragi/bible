@@ -9,13 +9,11 @@ class AddressParams
   def to_s
     book = value_or_nil(params[:book]) || "Gen"
     chapter = value_or_nil(params[:chapter])
-    first = value_or_nil(params[:first])
-    last = value_or_nil(params[:last])
+    verses = value_or_nil(params[:verses])
 
     return book unless chapter
-    return "#{book}#{chapter}" unless first
-    return "#{book}#{chapter}:#{first}-" unless last
-    "#{book}#{chapter}:#{first}-#{last}"
+    return "#{book}#{chapter}" unless verses
+    return "#{book}#{chapter}:#{verses.gsub(' ', '')}"
   end
 
   private

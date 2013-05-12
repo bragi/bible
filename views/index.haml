@@ -21,9 +21,9 @@
       .row
         .span8
           - if book.passage.has_verses?
-            %ol.verses{:start => book.first}
+            %ol.verses
               - book.passage.verses.each do |verse|
-                %li= verse
+                %li{value: verse[1]+1}= verse[0]
           - else
             %p.text-warning Nie ma wersetów w podanym zakresie
         .span4
@@ -40,13 +40,9 @@
               Rozdział
             %input{:type => "text", :id => "chapter", :name => "chapter", :value => book.chapter}
             
-            %label(for="first")
-              Pierwszy wiersz
-            %input{:type => "text", :id => "first", :name => "first", :value => book.first}
-            
-            %label(for="last")
-              Ostatni wiersz
-            %input{:type => "text", :id => "last", :name => "last", :value => book.last}
+            %label(for="verses")
+              Wiersze
+            %input{:type => "text", :id => "verses", :name => "verses", :value => book.verses, placeholder: 'np. 3,5,8-12,15-'}
             
             %input(type="submit" value="Pokaż")
       #push  

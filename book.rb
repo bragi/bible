@@ -13,19 +13,18 @@ class Book
     @books = book_names[:old].merge(book_names[:new])
   end
     
-  def initialize(short_name, chapter, first, last)
+  def initialize(short_name, chapter, verses)
     @short_name = Book.books.include?(short_name) ? short_name : "Gen"
     @full_name = Book.books[@short_name][:full_name]
     @chapter = chapter.to_i > 0 ? chapter.to_i : 1
-    @first = first.to_i > 0 ? first.to_i : 1
-    @last = last.to_i > 0 ? last.to_i : nil
+    @verses = verses
     @passage = Passage.new(self)
   end
   
-  attr_reader :short_name, :full_name, :chapter, :first, :last, :passage
+  attr_reader :short_name, :full_name, :chapter, :verses, :passage
   
   def passage_name
-    "#{full_name}, #{chapter}, #{first}-#{last}"
+    "#{full_name}, #{chapter}, #{verses}"
   end
 
   def options(group_name)

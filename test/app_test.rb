@@ -20,7 +20,7 @@ class AppTest < MiniTest::Unit::TestCase
   end
 
   def test_redirect_from_root_to_book_with_params
-    get "/", {book: "J", chapter: "11", first: "35", last: "45"}
+    get "/", {book: "J", chapter: "11", verses: "35-45"}
     assert last_response.redirect?
     assert_equal "http://example.org/J11:35-45" , last_response.location 
   end

@@ -17,18 +17,18 @@ class AddressParamsTest < MiniTest::Unit::TestCase
   end
   
   def test_with_start_and_no_end
-    assert_equal "Gen2:3-", AddressParams.new(book: "Gen", chapter: "2", first: "3").to_s
+    assert_equal "Gen2:3-", AddressParams.new(book: "Gen", chapter: "2", verses: "3-").to_s
   end
   
   def test_with_start_and_end
-    assert_equal "Gen2:3-7", AddressParams.new(book: "Gen", chapter: "2", first: "3", last: "7").to_s
+    assert_equal "Gen2:3-7", AddressParams.new(book: "Gen", chapter: "2", verses: "3-7").to_s
   end
 
-  def test_without_chapter_ignore_start
-    assert_equal "Gen", AddressParams.new(book: "Gen", first: "3", last: "7").to_s
+  def test_single_verse
+    assert_equal "Gen2:3", AddressParams.new(book: "Gen", chapter: "2", verses: "3").to_s
   end
 
-  def test_without_first_ignore_last
-    assert_equal "Gen3", AddressParams.new(book: "Gen", chapter: "3", last: "7").to_s
+  def test_without_chapter_ignore_verses
+    assert_equal "Gen", AddressParams.new(book: "Gen", verses: "3").to_s
   end
 end
