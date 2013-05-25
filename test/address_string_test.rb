@@ -39,4 +39,16 @@ class AddressStringTest < MiniTest::Unit::TestCase
   def test_with_start_and_end_with_space
     assert_equal ["Gen", "2", "3-7"], AddressString.new("Gen 2:3-7").to_params
   end
+
+  def test_single_verse
+    assert_equal ["Gen", "2", "3"], AddressString.new("Gen2:3").to_params
+  end
+
+  def test_verses_separated_by_comma
+    assert_equal ["Gen", "2", "2,3,4,19"], AddressString.new("Gen2:2,3,4,19").to_params
+  end
+
+  def test_verses_separated_by_dash_and_comma
+    assert_equal ["Gen", "2", "3-10,12-15,17"], AddressString.new("Gen2:3-10,12-15,17").to_params
+  end
 end
