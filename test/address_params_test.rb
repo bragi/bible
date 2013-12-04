@@ -39,4 +39,16 @@ class AddressParamsTest < MiniTest::Unit::TestCase
   def test_without_chapter_ignore_verses
     assert_equal "Gen", AddressParams.new(book: "Gen", verses: "3").to_s
   end
+
+  def test_verses_separated_by_comma
+    assert_equal "Gen1:5,8,12", AddressParams.new(book: "Gen", chapter: "1", verses: "5,8,12").to_s
+  end
+
+  def test_verses_separated_by_dash_and_comma
+    assert_equal "Gen1:5-8,15-18,22", AddressParams.new(book: "Gen", chapter: "1", verses: "5-8,15-18,22").to_s
+  end
+
+  def test_verses_with_optional_spaces
+    assert_equal "Gen1:2,3,15-18,23", AddressParams.new(book: "Gen", chapter: "1", verses: "2,  3,15-18, 23 ").to_s
+  end
 end
